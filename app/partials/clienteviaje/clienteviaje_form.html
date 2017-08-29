@@ -1,0 +1,79 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Clienteviaje' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="clienteviaje_id" class="col-sm-2 control-label">{{ 'clienteviaje.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="clienteviaje_id" name="id" ng-model="clienteviaje.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="clienteviaje_viajeid" class="col-sm-2 control-label">{{ 'clienteviaje.viajeid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="clienteviaje_viajeid" ng-model="clienteviaje.viajeid" name="viajeid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="viaje in items.viajes" title="{{viaje.label}}" ng-selected="{{viaje.value == clienteviaje.viajeid}}" value="{{viaje.value}}">{{viaje.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="clienteviaje_clienteid" class="col-sm-2 control-label">{{ 'clienteviaje.clienteid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="clienteviaje_clienteid" ng-model="clienteviaje.clienteid" name="clienteid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="cliente in items.clientes" title="{{cliente.label}}" ng-selected="{{cliente.value == clienteviaje.clienteid}}" value="{{cliente.value}}">{{cliente.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="clienteviaje_latitud" class="col-sm-2 control-label">{{ 'clienteviaje.latitud' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="clienteviaje_latitud" name="latitud" ng-model="clienteviaje.latitud" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="clienteviaje_longitud" class="col-sm-2 control-label">{{ 'clienteviaje.longitud' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="clienteviaje_longitud" name="longitud" ng-model="clienteviaje.longitud" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="clienteviaje_pasajeros" class="col-sm-2 control-label">{{ 'clienteviaje.pasajeros' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="clienteviaje_pasajeros" name="pasajeros" ng-model="clienteviaje.pasajeros" class="form-control" maxLength="11" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="clienteviaje_estadoid" class="col-sm-2 control-label">{{ 'clienteviaje.estadoid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="clienteviaje_estadoid" ng-model="clienteviaje.estadoid" name="estadoid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="estado in items.estados" title="{{estado.label}}" ng-selected="{{estado.value == clienteviaje.estadoid}}" value="{{estado.value}}">{{estado.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="clienteviaje_costo" class="col-sm-2 control-label">{{ 'clienteviaje.costo' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="clienteviaje_costo" name="costo" ng-model="clienteviaje.costo" class="form-control" maxLength="20" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(clienteviaje.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/clienteviaje">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

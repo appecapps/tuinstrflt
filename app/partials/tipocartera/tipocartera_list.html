@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Tipocartera' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'tipocartera.id' | translate }}</th>
+						<th>{{ 'tipocartera.nombre' | translate }}</th>
+						<th><a class="btn btn-info" href='#/tipocartera/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="tipocartera in tipocarteras">
+						<td>{{tipocartera.id}}</td>
+						<td>{{tipocartera.nombre}}</td>
+						<td><a class="btn btn-info" href="#/tipocartera/{{tipocartera.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

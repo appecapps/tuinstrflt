@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Tipodocumento' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'tipodocumento.id' | translate }}</th>
+						<th>{{ 'tipodocumento.nombre' | translate }}</th>
+						<th><a class="btn btn-info" href='#/tipodocumento/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="tipodocumento in tipodocumentos">
+						<td>{{tipodocumento.id}}</td>
+						<td>{{tipodocumento.nombre}}</td>
+						<td><a class="btn btn-info" href="#/tipodocumento/{{tipodocumento.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>Application</title>
+
+	<!-- style -->
+	<link href="css/bootstrap.min.css" rel="stylesheet"  type="text/css" />
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet"  type="text/css" />
+	<link href="css/bootstrap-datepicker.css" rel="stylesheet"  type="text/css" />
+	<link href="css/app.css" rel="stylesheet"  type="text/css" />
+	
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-inner">
+          	<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            	<span class="icon-bar"></span>
+            	<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        	</a>
+			<a class="navbar-brand logo" href="#" data-translate="welcome"></a>
+			<ul class="nav navbar-nav languages" ng-controller="TranslateCtrl">
+ 				<li><a class="navbar-brand" href="" ng-click="changeLanguage('en')">
+        	        <span class="glyphicon glyphicon-th-large"></span>
+            	    <span data-translate="english"></span>
+				</a></li>
+				<li><a class="navbar-brand" href="" ng-click="changeLanguage('fr')">
+        	        <span class="glyphicon glyphicon-th-large"></span>
+            	    <span data-translate="french"></span>
+				</a></li>
+			</ul>
+        </div>
+      </div>
+    </nav>
+	
+    <div class="container">
+		<div ng-view></div>
+	  	<div><span data-translate="app.version"></span>&nbsp;<span data-app-version></span></div>
+	</div>
+
+	<!-- javascript -->
+	<script src="lib/moment-with-langs.js"></script>
+	<script src="lib/validation.js"></script>
+	<script src="lib/jquery-1.10.2.min.js"></script>
+	<script src="lib/jquery-ui-1.10.4.custom.min.js"></script>
+  	<!-- In production use:
+  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  	-->
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="lib/angular/angular-resource.js"></script>
+	<script src="lib/angular/angular-cookies.js"></script>
+	<script src="lib/angular/angular-animate.js"></script>
+	<script src="lib/angular-translate/angular-translate.js"></script>
+	<script src="lib/angular-translate/angular-translate-storage-cookie.js"></script>
+	<script src="lib/angular-translate/angular-translate-storage-local.js"></script>
+	<script src="lib/angular-translate/angular-translate-loader-static-files.js"></script>
+	<script src="lib/angular-dynamic-locale/tmhDynamicLocale.js"></script>
+	<script src="lib/angular-strap/angular-strap.min.js"></script>
+	<script src="lib/angular-strap/angular-strap.tpl.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/i18n.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/messages_handler.js"></script>
+	<script src="js/chofer/chofer_module.js"></script>
+	<script src="js/chofer/chofer_factory.js"></script>
+	<script src="js/chofer/chofer_controller.js"></script>
+	<script src="js/chofervehiculo/chofervehiculo_module.js"></script>
+	<script src="js/chofervehiculo/chofervehiculo_factory.js"></script>
+	<script src="js/chofervehiculo/chofervehiculo_controller.js"></script>
+	<script src="js/ciudad/ciudad_module.js"></script>
+	<script src="js/ciudad/ciudad_factory.js"></script>
+	<script src="js/ciudad/ciudad_controller.js"></script>
+	<script src="js/cliente/cliente_module.js"></script>
+	<script src="js/cliente/cliente_factory.js"></script>
+	<script src="js/cliente/cliente_controller.js"></script>
+	<script src="js/clienteviaje/clienteviaje_module.js"></script>
+	<script src="js/clienteviaje/clienteviaje_factory.js"></script>
+	<script src="js/clienteviaje/clienteviaje_controller.js"></script>
+	<script src="js/clienteviajeservicio/clienteviajeservicio_module.js"></script>
+	<script src="js/clienteviajeservicio/clienteviajeservicio_factory.js"></script>
+	<script src="js/clienteviajeservicio/clienteviajeservicio_controller.js"></script>
+	<script src="js/color/color_module.js"></script>
+	<script src="js/color/color_factory.js"></script>
+	<script src="js/color/color_controller.js"></script>
+	<script src="js/componentedocumento/componentedocumento_module.js"></script>
+	<script src="js/componentedocumento/componentedocumento_factory.js"></script>
+	<script src="js/componentedocumento/componentedocumento_controller.js"></script>
+	<script src="js/componentefinanciero/componentefinanciero_module.js"></script>
+	<script src="js/componentefinanciero/componentefinanciero_factory.js"></script>
+	<script src="js/componentefinanciero/componentefinanciero_controller.js"></script>
+	<script src="js/destinohorario/destinohorario_module.js"></script>
+	<script src="js/destinohorario/destinohorario_factory.js"></script>
+	<script src="js/destinohorario/destinohorario_controller.js"></script>
+	<script src="js/documento/documento_module.js"></script>
+	<script src="js/documento/documento_factory.js"></script>
+	<script src="js/documento/documento_controller.js"></script>
+	<script src="js/entidad/entidad_module.js"></script>
+	<script src="js/entidad/entidad_factory.js"></script>
+	<script src="js/entidad/entidad_controller.js"></script>
+	<script src="js/entidadrol/entidadrol_module.js"></script>
+	<script src="js/entidadrol/entidadrol_factory.js"></script>
+	<script src="js/entidadrol/entidadrol_controller.js"></script>
+	<script src="js/estado/estado_module.js"></script>
+	<script src="js/estado/estado_factory.js"></script>
+	<script src="js/estado/estado_controller.js"></script>
+	<script src="js/facturaelectronica/facturaelectronica_module.js"></script>
+	<script src="js/facturaelectronica/facturaelectronica_factory.js"></script>
+	<script src="js/facturaelectronica/facturaelectronica_controller.js"></script>
+	<script src="js/formapago/formapago_module.js"></script>
+	<script src="js/formapago/formapago_factory.js"></script>
+	<script src="js/formapago/formapago_controller.js"></script>
+	<script src="js/formapagodocumento/formapagodocumento_module.js"></script>
+	<script src="js/formapagodocumento/formapagodocumento_factory.js"></script>
+	<script src="js/formapagodocumento/formapagodocumento_controller.js"></script>
+	<script src="js/horario/horario_module.js"></script>
+	<script src="js/horario/horario_factory.js"></script>
+	<script src="js/horario/horario_controller.js"></script>
+	<script src="js/itemmenu/itemmenu_module.js"></script>
+	<script src="js/itemmenu/itemmenu_factory.js"></script>
+	<script src="js/itemmenu/itemmenu_controller.js"></script>
+	<script src="js/marca/marca_module.js"></script>
+	<script src="js/marca/marca_factory.js"></script>
+	<script src="js/marca/marca_controller.js"></script>
+	<script src="js/menu/menu_module.js"></script>
+	<script src="js/menu/menu_factory.js"></script>
+	<script src="js/menu/menu_controller.js"></script>
+	<script src="js/modelo/modelo_module.js"></script>
+	<script src="js/modelo/modelo_factory.js"></script>
+	<script src="js/modelo/modelo_controller.js"></script>
+	<script src="js/provincia/provincia_module.js"></script>
+	<script src="js/provincia/provincia_factory.js"></script>
+	<script src="js/provincia/provincia_controller.js"></script>
+	<script src="js/rol/rol_module.js"></script>
+	<script src="js/rol/rol_factory.js"></script>
+	<script src="js/rol/rol_controller.js"></script>
+	<script src="js/rolitemmenu/rolitemmenu_module.js"></script>
+	<script src="js/rolitemmenu/rolitemmenu_factory.js"></script>
+	<script src="js/rolitemmenu/rolitemmenu_controller.js"></script>
+	<script src="js/servicio/servicio_module.js"></script>
+	<script src="js/servicio/servicio_factory.js"></script>
+	<script src="js/servicio/servicio_controller.js"></script>
+	<script src="js/tipocartera/tipocartera_module.js"></script>
+	<script src="js/tipocartera/tipocartera_factory.js"></script>
+	<script src="js/tipocartera/tipocartera_controller.js"></script>
+	<script src="js/tipocomponentefinanciero/tipocomponentefinanciero_module.js"></script>
+	<script src="js/tipocomponentefinanciero/tipocomponentefinanciero_factory.js"></script>
+	<script src="js/tipocomponentefinanciero/tipocomponentefinanciero_controller.js"></script>
+	<script src="js/tipodocumento/tipodocumento_module.js"></script>
+	<script src="js/tipodocumento/tipodocumento_factory.js"></script>
+	<script src="js/tipodocumento/tipodocumento_controller.js"></script>
+	<script src="js/tipovehiculo/tipovehiculo_module.js"></script>
+	<script src="js/tipovehiculo/tipovehiculo_factory.js"></script>
+	<script src="js/tipovehiculo/tipovehiculo_controller.js"></script>
+	<script src="js/variables/variables_module.js"></script>
+	<script src="js/variables/variables_factory.js"></script>
+	<script src="js/variables/variables_controller.js"></script>
+	<script src="js/vehiculo/vehiculo_module.js"></script>
+	<script src="js/vehiculo/vehiculo_factory.js"></script>
+	<script src="js/vehiculo/vehiculo_controller.js"></script>
+	<script src="js/vehiculoservicio/vehiculoservicio_module.js"></script>
+	<script src="js/vehiculoservicio/vehiculoservicio_factory.js"></script>
+	<script src="js/vehiculoservicio/vehiculoservicio_controller.js"></script>
+	<script src="js/viaje/viaje_module.js"></script>
+	<script src="js/viaje/viaje_factory.js"></script>
+	<script src="js/viaje/viaje_controller.js"></script>
+	<script src="js/filters.js"></script>
+	<script src="js/directives.js"></script>
+</body>
+</html>

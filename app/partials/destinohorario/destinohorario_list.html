@@ -1,0 +1,26 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Destinohorario' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'destinohorario.id' | translate }}</th>
+						<th>{{ 'destinohorario.costo' | translate }}</th>
+						<th>{{ 'destinohorario.minimopasajeros' | translate }}</th>
+						<th>{{ 'destinohorario.automatico' | translate }}</th>
+						<th><a class="btn btn-info" href='#/destinohorario/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="destinohorario in destinohorarios">
+						<td>{{destinohorario.id}}</td>
+						<td>{{destinohorario.costo | number }}</td>
+						<td>{{destinohorario.minimopasajeros | number }}</td>
+						<td>{{destinohorario.automatico}}</td>
+						<td><a class="btn btn-info" href="#/destinohorario/{{destinohorario.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,76 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Vehiculo' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="vehiculo_id" class="col-sm-2 control-label">{{ 'vehiculo.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="vehiculo_id" name="id" ng-model="vehiculo.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="vehiculo_placa" class="col-sm-2 control-label">{{ 'vehiculo.placa' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="vehiculo_placa" name="placa" ng-model="vehiculo.placa" class="form-control" maxLength="25" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="vehiculo_motor" class="col-sm-2 control-label">{{ 'vehiculo.motor' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="vehiculo_motor" name="motor" ng-model="vehiculo.motor" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="vehiculo_chasis" class="col-sm-2 control-label">{{ 'vehiculo.chasis' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="vehiculo_chasis" name="chasis" ng-model="vehiculo.chasis" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="vehiculo_modeloid" class="col-sm-2 control-label">{{ 'vehiculo.modeloid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="vehiculo_modeloid" ng-model="vehiculo.modeloid" name="modeloid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="modelo in items.modelos" title="{{modelo.label}}" ng-selected="{{modelo.value == vehiculo.modeloid}}" value="{{modelo.value}}">{{modelo.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="vehiculo_colorid" class="col-sm-2 control-label">{{ 'vehiculo.colorid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="vehiculo_colorid" ng-model="vehiculo.colorid" name="colorid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="color in items.colors" title="{{color.label}}" ng-selected="{{color.value == vehiculo.colorid}}" value="{{color.value}}">{{color.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="vehiculo_pasajeros" class="col-sm-2 control-label">{{ 'vehiculo.pasajeros' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="vehiculo_pasajeros" name="pasajeros" ng-model="vehiculo.pasajeros" class="form-control" maxLength="11" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="vehiculo_anio" class="col-sm-2 control-label">{{ 'vehiculo.anio' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="vehiculo_anio" name="anio" ng-model="vehiculo.anio" class="form-control" maxLength="11" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(vehiculo.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/vehiculo">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

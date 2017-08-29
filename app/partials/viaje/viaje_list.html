@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Viaje' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'viaje.id' | translate }}</th>
+						<th>{{ 'viaje.confirmado' | translate }}</th>
+						<th><a class="btn btn-info" href='#/viaje/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="viaje in viajes">
+						<td>{{viaje.id}}</td>
+						<td>{{viaje.confirmado}}</td>
+						<td><a class="btn btn-info" href="#/viaje/{{viaje.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,30 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Documento' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'documento.id' | translate }}</th>
+						<th>{{ 'documento.numero' | translate }}</th>
+						<th>{{ 'documento.descripcion' | translate }}</th>
+						<th>{{ 'documento.valor' | translate }}</th>
+						<th>{{ 'documento.origenid' | translate }}</th>
+						<th>{{ 'documento.origen' | translate }}</th>
+						<th><a class="btn btn-info" href='#/documento/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="documento in documentos">
+						<td>{{documento.id}}</td>
+						<td>{{documento.numero}}</td>
+						<td>{{documento.descripcion}}</td>
+						<td>{{documento.valor | number }}</td>
+						<td>{{documento.origenid | number }}</td>
+						<td>{{documento.origen}}</td>
+						<td><a class="btn btn-info" href="#/documento/{{documento.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

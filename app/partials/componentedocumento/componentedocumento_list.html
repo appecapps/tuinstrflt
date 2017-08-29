@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Componentedocumento' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'componentedocumento.id' | translate }}</th>
+						<th>{{ 'componentedocumento.valor' | translate }}</th>
+						<th><a class="btn btn-info" href='#/componentedocumento/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="componentedocumento in componentedocumentos">
+						<td>{{componentedocumento.id}}</td>
+						<td>{{componentedocumento.valor | number }}</td>
+						<td><a class="btn btn-info" href="#/componentedocumento/{{componentedocumento.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

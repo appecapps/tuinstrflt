@@ -1,0 +1,43 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Tipodocumento' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="tipodocumento_id" class="col-sm-2 control-label">{{ 'tipodocumento.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="tipodocumento_id" name="id" ng-model="tipodocumento.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="tipodocumento_nombre" class="col-sm-2 control-label">{{ 'tipodocumento.nombre' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="tipodocumento_nombre" name="nombre" ng-model="tipodocumento.nombre" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="tipodocumento_tipocarteraid" class="col-sm-2 control-label">{{ 'tipodocumento.tipocarteraid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="tipodocumento_tipocarteraid" ng-model="tipodocumento.tipocarteraid" name="tipocarteraid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="tipocartera in items.tipocarteras" title="{{tipocartera.label}}" ng-selected="{{tipocartera.value == tipodocumento.tipocarteraid}}" value="{{tipocartera.value}}">{{tipocartera.label}}</option>
+                    </select>
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(tipodocumento.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/tipodocumento">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

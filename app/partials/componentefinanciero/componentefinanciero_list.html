@@ -1,0 +1,28 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Componentefinanciero' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'componentefinanciero.id' | translate }}</th>
+						<th>{{ 'componentefinanciero.nombre' | translate }}</th>
+						<th>{{ 'componentefinanciero.vigenciadesde' | translate }}</th>
+						<th>{{ 'componentefinanciero.vigenciahasta' | translate }}</th>
+						<th>{{ 'componentefinanciero.rubro' | translate }}</th>
+						<th><a class="btn btn-info" href='#/componentefinanciero/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="componentefinanciero in componentefinancieros">
+						<td>{{componentefinanciero.id}}</td>
+						<td>{{componentefinanciero.nombre}}</td>
+						<td>{{componentefinanciero.vigenciadesde | date:'shortDate'}}</td>
+						<td>{{componentefinanciero.vigenciahasta | date:'shortDate'}}</td>
+						<td>{{componentefinanciero.rubro}}</td>
+						<td><a class="btn btn-info" href="#/componentefinanciero/{{componentefinanciero.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

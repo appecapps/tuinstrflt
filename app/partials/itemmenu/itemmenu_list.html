@@ -1,0 +1,28 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Itemmenu' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'itemmenu.id' | translate }}</th>
+						<th>{{ 'itemmenu.link' | translate }}</th>
+						<th>{{ 'itemmenu.nombre' | translate }}</th>
+						<th>{{ 'itemmenu.orden' | translate }}</th>
+						<th>{{ 'itemmenu.activo' | translate }}</th>
+						<th><a class="btn btn-info" href='#/itemmenu/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="itemmenu in itemmenus">
+						<td>{{itemmenu.id}}</td>
+						<td>{{itemmenu.link}}</td>
+						<td>{{itemmenu.nombre}}</td>
+						<td>{{itemmenu.orden | number }}</td>
+						<td>{{itemmenu.activo}}</td>
+						<td><a class="btn btn-info" href="#/itemmenu/{{itemmenu.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

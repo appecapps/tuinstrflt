@@ -1,0 +1,34 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Entidad' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'entidad.id' | translate }}</th>
+						<th>{{ 'entidad.identificacion' | translate }}</th>
+						<th>{{ 'entidad.nombre' | translate }}</th>
+						<th>{{ 'entidad.apellido' | translate }}</th>
+						<th>{{ 'entidad.correo' | translate }}</th>
+						<th>{{ 'entidad.password' | translate }}</th>
+						<th>{{ 'entidad.activo' | translate }}</th>
+						<th>{{ 'entidad.web' | translate }}</th>
+						<th><a class="btn btn-info" href='#/entidad/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="entidad in entidads">
+						<td>{{entidad.id}}</td>
+						<td>{{entidad.identificacion}}</td>
+						<td>{{entidad.nombre}}</td>
+						<td>{{entidad.apellido}}</td>
+						<td>{{entidad.correo}}</td>
+						<td>{{entidad.password}}</td>
+						<td>{{entidad.activo}}</td>
+						<td>{{entidad.web}}</td>
+						<td><a class="btn btn-info" href="#/entidad/{{entidad.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

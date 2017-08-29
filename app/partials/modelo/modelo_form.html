@@ -1,0 +1,58 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Modelo' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="modelo_id" class="col-sm-2 control-label">{{ 'modelo.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="modelo_id" name="id" ng-model="modelo.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="modelo_marcaid" class="col-sm-2 control-label">{{ 'modelo.marcaid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="modelo_marcaid" ng-model="modelo.marcaid" name="marcaid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="marca in items.marcas" title="{{marca.label}}" ng-selected="{{marca.value == modelo.marcaid}}" value="{{marca.value}}">{{marca.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="modelo_tipovehiculoid" class="col-sm-2 control-label">{{ 'modelo.tipovehiculoid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="modelo_tipovehiculoid" ng-model="modelo.tipovehiculoid" name="tipovehiculoid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="tipovehiculo in items.tipovehiculos" title="{{tipovehiculo.label}}" ng-selected="{{tipovehiculo.value == modelo.tipovehiculoid}}" value="{{tipovehiculo.value}}">{{tipovehiculo.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="modelo_nombre" class="col-sm-2 control-label">{{ 'modelo.nombre' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="modelo_nombre" name="nombre" ng-model="modelo.nombre" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="modelo_activo" class="col-sm-2 control-label">{{ 'modelo.activo' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="modelo_activo" name="activo" ng-model="modelo.activo" class="form-control" maxLength="4" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(modelo.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/modelo">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

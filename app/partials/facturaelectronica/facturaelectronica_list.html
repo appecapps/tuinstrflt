@@ -1,0 +1,26 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Facturaelectronica' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'facturaelectronica.id' | translate }}</th>
+						<th>{{ 'facturaelectronica.claveacceso' | translate }}</th>
+						<th>{{ 'facturaelectronica.respuesta' | translate }}</th>
+						<th>{{ 'facturaelectronica.fechaautorizacion' | translate }}</th>
+						<th><a class="btn btn-info" href='#/facturaelectronica/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="facturaelectronica in facturaelectronicas">
+						<td>{{facturaelectronica.id}}</td>
+						<td>{{facturaelectronica.claveacceso}}</td>
+						<td>{{facturaelectronica.respuesta}}</td>
+						<td>{{facturaelectronica.fechaautorizacion | date:'shortDate'}}</td>
+						<td><a class="btn btn-info" href="#/facturaelectronica/{{facturaelectronica.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
