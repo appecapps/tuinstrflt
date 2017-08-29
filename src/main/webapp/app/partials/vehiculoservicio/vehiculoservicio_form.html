@@ -1,0 +1,46 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Vehiculoservicio' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="vehiculoservicio_id" class="col-sm-2 control-label">{{ 'vehiculoservicio.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="vehiculoservicio_id" name="id" ng-model="vehiculoservicio.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="vehiculoservicio_vehiculoid" class="col-sm-2 control-label">{{ 'vehiculoservicio.vehiculoid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="vehiculoservicio_vehiculoid" ng-model="vehiculoservicio.vehiculoid" name="vehiculoid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="vehiculo in items.vehiculos" title="{{vehiculo.label}}" ng-selected="{{vehiculo.value == vehiculoservicio.vehiculoid}}" value="{{vehiculo.value}}">{{vehiculo.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="vehiculoservicio_servicioid" class="col-sm-2 control-label">{{ 'vehiculoservicio.servicioid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="vehiculoservicio_servicioid" ng-model="vehiculoservicio.servicioid" name="servicioid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="servicio in items.servicios" title="{{servicio.label}}" ng-selected="{{servicio.value == vehiculoservicio.servicioid}}" value="{{servicio.value}}">{{servicio.label}}</option>
+                    </select>
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(vehiculoservicio.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/vehiculoservicio">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

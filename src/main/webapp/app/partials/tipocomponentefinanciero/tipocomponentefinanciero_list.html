@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Tipocomponentefinanciero' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'tipocomponentefinanciero.id' | translate }}</th>
+						<th>{{ 'tipocomponentefinanciero.nombre' | translate }}</th>
+						<th><a class="btn btn-info" href='#/tipocomponentefinanciero/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="tipocomponentefinanciero in tipocomponentefinancieros">
+						<td>{{tipocomponentefinanciero.id}}</td>
+						<td>{{tipocomponentefinanciero.nombre}}</td>
+						<td><a class="btn btn-info" href="#/tipocomponentefinanciero/{{tipocomponentefinanciero.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

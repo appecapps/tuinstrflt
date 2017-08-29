@@ -1,0 +1,28 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Clienteviaje' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'clienteviaje.id' | translate }}</th>
+						<th>{{ 'clienteviaje.latitud' | translate }}</th>
+						<th>{{ 'clienteviaje.longitud' | translate }}</th>
+						<th>{{ 'clienteviaje.pasajeros' | translate }}</th>
+						<th>{{ 'clienteviaje.costo' | translate }}</th>
+						<th><a class="btn btn-info" href='#/clienteviaje/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="clienteviaje in clienteviajes">
+						<td>{{clienteviaje.id}}</td>
+						<td>{{clienteviaje.latitud | number }}</td>
+						<td>{{clienteviaje.longitud | number }}</td>
+						<td>{{clienteviaje.pasajeros | number }}</td>
+						<td>{{clienteviaje.costo | number }}</td>
+						<td><a class="btn btn-info" href="#/clienteviaje/{{clienteviaje.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

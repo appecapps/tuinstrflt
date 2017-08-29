@@ -1,0 +1,26 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Ciudad' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'ciudad.id' | translate }}</th>
+						<th>{{ 'ciudad.nombre' | translate }}</th>
+						<th>{{ 'ciudad.activo' | translate }}</th>
+						<th>{{ 'ciudad.costo' | translate }}</th>
+						<th><a class="btn btn-info" href='#/ciudad/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="ciudad in ciudads">
+						<td>{{ciudad.id}}</td>
+						<td>{{ciudad.nombre}}</td>
+						<td>{{ciudad.activo}}</td>
+						<td>{{ciudad.costo | number }}</td>
+						<td><a class="btn btn-info" href="#/ciudad/{{ciudad.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

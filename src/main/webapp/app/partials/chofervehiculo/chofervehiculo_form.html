@@ -1,0 +1,52 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Chofervehiculo' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="chofervehiculo_id" class="col-sm-2 control-label">{{ 'chofervehiculo.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="chofervehiculo_id" name="id" ng-model="chofervehiculo.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="chofervehiculo_choferid" class="col-sm-2 control-label">{{ 'chofervehiculo.choferid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="chofervehiculo_choferid" ng-model="chofervehiculo.choferid" name="choferid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="chofer in items.chofers" title="{{chofer.label}}" ng-selected="{{chofer.value == chofervehiculo.choferid}}" value="{{chofer.value}}">{{chofer.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="chofervehiculo_vehiculoid" class="col-sm-2 control-label">{{ 'chofervehiculo.vehiculoid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="chofervehiculo_vehiculoid" ng-model="chofervehiculo.vehiculoid" name="vehiculoid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="vehiculo in items.vehiculos" title="{{vehiculo.label}}" ng-selected="{{vehiculo.value == chofervehiculo.vehiculoid}}" value="{{vehiculo.value}}">{{vehiculo.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="chofervehiculo_predeterminado" class="col-sm-2 control-label">{{ 'chofervehiculo.predeterminado' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="chofervehiculo_predeterminado" name="predeterminado" ng-model="chofervehiculo.predeterminado" class="form-control" maxLength="4" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(chofervehiculo.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/chofervehiculo">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

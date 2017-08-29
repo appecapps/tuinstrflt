@@ -1,0 +1,50 @@
+<div xmlns:s="http://www.springframework.org/tags" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+<jsp:directive.page contentType="text/html;charset=UTF-8" />
+<jsp:output omit-xml-declaration="yes" />
+	<s:message var="app_name" code="application_name" htmlEscape="false" />
+	<s:message var="title" code="welcome_titlepane" arguments="${app_name}" htmlEscape="false" />
+    
+    <div class="container">
+		<h3>
+			<s:message code="welcome_h3" arguments="${app_name}" />
+		</h3>
+      
+		<ul class="entity">
+            <li><a href="chofer">Chofer</a></li>
+            <li><a href="chofervehiculo">Chofervehiculo</a></li>
+            <li><a href="ciudad">Ciudad</a></li>
+            <li><a href="cliente">Cliente</a></li>
+            <li><a href="clienteviaje">Clienteviaje</a></li>
+            <li><a href="clienteviajeservicio">Clienteviajeservicio</a></li>
+            <li><a href="color">Color</a></li>
+            <li><a href="componentedocumento">Componentedocumento</a></li>
+            <li><a href="componentefinanciero">Componentefinanciero</a></li>
+            <li><a href="destinohorario">Destinohorario</a></li>
+            <li><a href="documento">Documento</a></li>
+            <li><a href="entidad">Entidad</a></li>
+            <li><a href="entidadrol">Entidadrol</a></li>
+            <li><a href="estado">Estado</a></li>
+            <li><a href="facturaelectronica">Facturaelectronica</a></li>
+            <li><a href="formapago">Formapago</a></li>
+            <li><a href="formapagodocumento">Formapagodocumento</a></li>
+            <li><a href="horario">Horario</a></li>
+            <li><a href="itemmenu">Itemmenu</a></li>
+            <li><a href="marca">Marca</a></li>
+            <li><a href="menu">Menu</a></li>
+            <li><a href="modelo">Modelo</a></li>
+            <li><a href="provincia">Provincia</a></li>
+            <li><a href="rol">Rol</a></li>
+            <li><a href="rolitemmenu">Rolitemmenu</a></li>
+            <li><a href="servicio">Servicio</a></li>
+            <li><a href="tipocartera">Tipocartera</a></li>
+            <li><a href="tipocomponentefinanciero">Tipocomponentefinanciero</a></li>
+            <li><a href="tipodocumento">Tipodocumento</a></li>
+            <li><a href="tipovehiculo">Tipovehiculo</a></li>
+            <li><a href="variables">Variables</a></li>
+            <li><a href="vehiculo">Vehiculo</a></li>
+            <li><a href="vehiculoservicio">Vehiculoservicio</a></li>
+            <li><a href="viaje">Viaje</a></li>
+	    </ul>
+
+    </div> <!-- /container -->
+</div>

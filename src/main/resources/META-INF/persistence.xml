@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    
+	<persistence-unit name="persistence-unit1" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.tuin.bean.jpa.ChoferEntity</class>
+		<class>com.tuin.bean.jpa.ChofervehiculoEntity</class>
+		<class>com.tuin.bean.jpa.CiudadEntity</class>
+		<class>com.tuin.bean.jpa.ClienteEntity</class>
+		<class>com.tuin.bean.jpa.ClienteviajeEntity</class>
+		<class>com.tuin.bean.jpa.ClienteviajeservicioEntity</class>
+		<class>com.tuin.bean.jpa.ColorEntity</class>
+		<class>com.tuin.bean.jpa.ComponentedocumentoEntity</class>
+		<class>com.tuin.bean.jpa.ComponentefinancieroEntity</class>
+		<class>com.tuin.bean.jpa.DestinohorarioEntity</class>
+		<class>com.tuin.bean.jpa.DocumentoEntity</class>
+		<class>com.tuin.bean.jpa.EntidadEntity</class>
+		<class>com.tuin.bean.jpa.EntidadrolEntity</class>
+		<class>com.tuin.bean.jpa.EstadoEntity</class>
+		<class>com.tuin.bean.jpa.FacturaelectronicaEntity</class>
+		<class>com.tuin.bean.jpa.FormapagoEntity</class>
+		<class>com.tuin.bean.jpa.FormapagodocumentoEntity</class>
+		<class>com.tuin.bean.jpa.HorarioEntity</class>
+		<class>com.tuin.bean.jpa.ItemmenuEntity</class>
+		<class>com.tuin.bean.jpa.MarcaEntity</class>
+		<class>com.tuin.bean.jpa.MenuEntity</class>
+		<class>com.tuin.bean.jpa.ModeloEntity</class>
+		<class>com.tuin.bean.jpa.ProvinciaEntity</class>
+		<class>com.tuin.bean.jpa.RolEntity</class>
+		<class>com.tuin.bean.jpa.RolitemmenuEntity</class>
+		<class>com.tuin.bean.jpa.ServicioEntity</class>
+		<class>com.tuin.bean.jpa.TipocarteraEntity</class>
+		<class>com.tuin.bean.jpa.TipocomponentefinancieroEntity</class>
+		<class>com.tuin.bean.jpa.TipodocumentoEntity</class>
+		<class>com.tuin.bean.jpa.TipovehiculoEntity</class>
+		<class>com.tuin.bean.jpa.VariablesEntity</class>
+		<class>com.tuin.bean.jpa.VehiculoEntity</class>
+		<class>com.tuin.bean.jpa.VehiculoservicioEntity</class>
+		<class>com.tuin.bean.jpa.ViajeEntity</class>
+		<properties>
+			<property name="eclipselink.exclude-eclipselink-orm" value="true"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/app"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="123wesh456"/>
+		</properties>
+	</persistence-unit>
+    
+</persistence>

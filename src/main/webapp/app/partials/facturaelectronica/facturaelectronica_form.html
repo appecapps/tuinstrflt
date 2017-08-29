@@ -1,0 +1,64 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Facturaelectronica' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="facturaelectronica_id" class="col-sm-2 control-label">{{ 'facturaelectronica.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="facturaelectronica_id" name="id" ng-model="facturaelectronica.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="facturaelectronica_claveacceso" class="col-sm-2 control-label">{{ 'facturaelectronica.claveacceso' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="facturaelectronica_claveacceso" name="claveacceso" ng-model="facturaelectronica.claveacceso" class="form-control" maxLength="100" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="facturaelectronica_estadoid" class="col-sm-2 control-label">{{ 'facturaelectronica.estadoid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="facturaelectronica_estadoid" ng-model="facturaelectronica.estadoid" name="estadoid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="estado in items.estados" title="{{estado.label}}" ng-selected="{{estado.value == facturaelectronica.estadoid}}" value="{{estado.value}}">{{estado.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="facturaelectronica_documentoid" class="col-sm-2 control-label">{{ 'facturaelectronica.documentoid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="facturaelectronica_documentoid" ng-model="facturaelectronica.documentoid" name="documentoid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="documento in items.documentos" title="{{documento.label}}" ng-selected="{{documento.value == facturaelectronica.documentoid}}" value="{{documento.value}}">{{documento.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="facturaelectronica_respuesta" class="col-sm-2 control-label">{{ 'facturaelectronica.respuesta' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="facturaelectronica_respuesta" name="respuesta" ng-model="facturaelectronica.respuesta" class="form-control" maxLength="200" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="facturaelectronica_fechaautorizacion" class="col-sm-2 control-label">{{ 'facturaelectronica.fechaautorizacion' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="facturaelectronica_fechaautorizacion" bs-datepicker data-autoclose="1" ng-model="facturaelectronica.fechaautorizacion" name="fechaautorizacion" class="form-control" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(facturaelectronica.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/facturaelectronica">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

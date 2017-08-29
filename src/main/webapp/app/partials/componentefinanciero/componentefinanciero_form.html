@@ -1,0 +1,70 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Componentefinanciero' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="componentefinanciero_id" class="col-sm-2 control-label">{{ 'componentefinanciero.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="componentefinanciero_id" name="id" ng-model="componentefinanciero.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="componentefinanciero_nombre" class="col-sm-2 control-label">{{ 'componentefinanciero.nombre' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="componentefinanciero_nombre" name="nombre" ng-model="componentefinanciero.nombre" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="componentefinanciero_vigenciadesde" class="col-sm-2 control-label">{{ 'componentefinanciero.vigenciadesde' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="componentefinanciero_vigenciadesde" bs-datepicker data-autoclose="1" ng-model="componentefinanciero.vigenciadesde" name="vigenciadesde" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="componentefinanciero_vigenciahasta" class="col-sm-2 control-label">{{ 'componentefinanciero.vigenciahasta' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="componentefinanciero_vigenciahasta" bs-datepicker data-autoclose="1" ng-model="componentefinanciero.vigenciahasta" name="vigenciahasta" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="componentefinanciero_tipodocumentoid" class="col-sm-2 control-label">{{ 'componentefinanciero.tipodocumentoid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="componentefinanciero_tipodocumentoid" ng-model="componentefinanciero.tipodocumentoid" name="tipodocumentoid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="tipodocumento in items.tipodocumentos" title="{{tipodocumento.label}}" ng-selected="{{tipodocumento.value == componentefinanciero.tipodocumentoid}}" value="{{tipodocumento.value}}">{{tipodocumento.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="componentefinanciero_tipocomponentefinancieroid" class="col-sm-2 control-label">{{ 'componentefinanciero.tipocomponentefinancieroid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="componentefinanciero_tipocomponentefinancieroid" ng-model="componentefinanciero.tipocomponentefinancieroid" name="tipocomponentefinancieroid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="tipocomponentefinanciero in items.tipocomponentefinancieros" title="{{tipocomponentefinanciero.label}}" ng-selected="{{tipocomponentefinanciero.value == componentefinanciero.tipocomponentefinancieroid}}" value="{{tipocomponentefinanciero.value}}">{{tipocomponentefinanciero.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="componentefinanciero_rubro" class="col-sm-2 control-label">{{ 'componentefinanciero.rubro' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="componentefinanciero_rubro" name="rubro" ng-model="componentefinanciero.rubro" class="form-control" maxLength="45" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(componentefinanciero.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/componentefinanciero">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

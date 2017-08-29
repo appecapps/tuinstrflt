@@ -1,0 +1,24 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Formapago' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'formapago.id' | translate }}</th>
+						<th>{{ 'formapago.nombre' | translate }}</th>
+						<th>{{ 'formapago.activo' | translate }}</th>
+						<th><a class="btn btn-info" href='#/formapago/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="formapago in formapagos">
+						<td>{{formapago.id}}</td>
+						<td>{{formapago.nombre}}</td>
+						<td>{{formapago.activo}}</td>
+						<td><a class="btn btn-info" href="#/formapago/{{formapago.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

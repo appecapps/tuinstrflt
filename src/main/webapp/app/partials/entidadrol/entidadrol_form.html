@@ -1,0 +1,46 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Entidadrol' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="entidadrol_id" class="col-sm-2 control-label">{{ 'entidadrol.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="entidadrol_id" name="id" ng-model="entidadrol.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="entidadrol_rolid" class="col-sm-2 control-label">{{ 'entidadrol.rolid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="entidadrol_rolid" ng-model="entidadrol.rolid" name="rolid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="rol in items.rols" title="{{rol.label}}" ng-selected="{{rol.value == entidadrol.rolid}}" value="{{rol.value}}">{{rol.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="entidadrol_entidadid" class="col-sm-2 control-label">{{ 'entidadrol.entidadid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="entidadrol_entidadid" ng-model="entidadrol.entidadid" name="entidadid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="entidad in items.entidads" title="{{entidad.label}}" ng-selected="{{entidad.value == entidadrol.entidadid}}" value="{{entidad.value}}">{{entidad.label}}</option>
+                    </select>
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(entidadrol.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/entidadrol">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

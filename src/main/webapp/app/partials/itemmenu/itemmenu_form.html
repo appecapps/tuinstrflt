@@ -1,0 +1,61 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Itemmenu' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="itemmenu_id" class="col-sm-2 control-label">{{ 'itemmenu.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="itemmenu_id" name="id" ng-model="itemmenu.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="itemmenu_link" class="col-sm-2 control-label">{{ 'itemmenu.link' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="itemmenu_link" name="link" ng-model="itemmenu.link" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="itemmenu_nombre" class="col-sm-2 control-label">{{ 'itemmenu.nombre' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="itemmenu_nombre" name="nombre" ng-model="itemmenu.nombre" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="itemmenu_menuid" class="col-sm-2 control-label">{{ 'itemmenu.menuid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="itemmenu_menuid" ng-model="itemmenu.menuid" name="menuid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="menu in items.menus" title="{{menu.label}}" ng-selected="{{menu.value == itemmenu.menuid}}" value="{{menu.value}}">{{menu.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="itemmenu_orden" class="col-sm-2 control-label">{{ 'itemmenu.orden' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="itemmenu_orden" name="orden" ng-model="itemmenu.orden" class="form-control" maxLength="11" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="itemmenu_activo" class="col-sm-2 control-label">{{ 'itemmenu.activo' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="itemmenu_activo" name="activo" ng-model="itemmenu.activo" class="form-control" maxLength="4" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(itemmenu.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/itemmenu">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

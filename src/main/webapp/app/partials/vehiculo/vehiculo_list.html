@@ -1,0 +1,30 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Vehiculo' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'vehiculo.id' | translate }}</th>
+						<th>{{ 'vehiculo.placa' | translate }}</th>
+						<th>{{ 'vehiculo.motor' | translate }}</th>
+						<th>{{ 'vehiculo.chasis' | translate }}</th>
+						<th>{{ 'vehiculo.pasajeros' | translate }}</th>
+						<th>{{ 'vehiculo.anio' | translate }}</th>
+						<th><a class="btn btn-info" href='#/vehiculo/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="vehiculo in vehiculos">
+						<td>{{vehiculo.id}}</td>
+						<td>{{vehiculo.placa}}</td>
+						<td>{{vehiculo.motor}}</td>
+						<td>{{vehiculo.chasis}}</td>
+						<td>{{vehiculo.pasajeros | number }}</td>
+						<td>{{vehiculo.anio | number }}</td>
+						<td><a class="btn btn-info" href="#/vehiculo/{{vehiculo.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,24 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Modelo' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'modelo.id' | translate }}</th>
+						<th>{{ 'modelo.nombre' | translate }}</th>
+						<th>{{ 'modelo.activo' | translate }}</th>
+						<th><a class="btn btn-info" href='#/modelo/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="modelo in modelos">
+						<td>{{modelo.id}}</td>
+						<td>{{modelo.nombre}}</td>
+						<td>{{modelo.activo}}</td>
+						<td><a class="btn btn-info" href="#/modelo/{{modelo.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

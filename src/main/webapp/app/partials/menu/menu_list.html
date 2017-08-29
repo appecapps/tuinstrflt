@@ -1,0 +1,26 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Menu' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'menu.id' | translate }}</th>
+						<th>{{ 'menu.nombre' | translate }}</th>
+						<th>{{ 'menu.orden' | translate }}</th>
+						<th>{{ 'menu.activo' | translate }}</th>
+						<th><a class="btn btn-info" href='#/menu/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="menu in menus">
+						<td>{{menu.id}}</td>
+						<td>{{menu.nombre}}</td>
+						<td>{{menu.orden}}</td>
+						<td>{{menu.activo}}</td>
+						<td><a class="btn btn-info" href="#/menu/{{menu.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

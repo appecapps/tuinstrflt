@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Rolitemmenu' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'rolitemmenu.id' | translate }}</th>
+						<th>{{ 'rolitemmenu.activo' | translate }}</th>
+						<th><a class="btn btn-info" href='#/rolitemmenu/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="rolitemmenu in rolitemmenus">
+						<td>{{rolitemmenu.id}}</td>
+						<td>{{rolitemmenu.activo}}</td>
+						<td><a class="btn btn-info" href="#/rolitemmenu/{{rolitemmenu.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

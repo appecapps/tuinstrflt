@@ -1,0 +1,64 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Destinohorario' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="destinohorario_id" class="col-sm-2 control-label">{{ 'destinohorario.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="destinohorario_id" name="id" ng-model="destinohorario.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="destinohorario_horarioid" class="col-sm-2 control-label">{{ 'destinohorario.horarioid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="destinohorario_horarioid" ng-model="destinohorario.horarioid" name="horarioid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="horario in items.horarios" title="{{horario.label}}" ng-selected="{{horario.value == destinohorario.horarioid}}" value="{{horario.value}}">{{horario.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="destinohorario_destinoid" class="col-sm-2 control-label">{{ 'destinohorario.destinoid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="destinohorario_destinoid" ng-model="destinohorario.destinoid" name="destinoid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="ciudad in items.ciudads" title="{{ciudad.label}}" ng-selected="{{ciudad.value == destinohorario.destinoid}}" value="{{ciudad.value}}">{{ciudad.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="destinohorario_costo" class="col-sm-2 control-label">{{ 'destinohorario.costo' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="destinohorario_costo" name="costo" ng-model="destinohorario.costo" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="destinohorario_minimopasajeros" class="col-sm-2 control-label">{{ 'destinohorario.minimopasajeros' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="destinohorario_minimopasajeros" name="minimopasajeros" ng-model="destinohorario.minimopasajeros" class="form-control" maxLength="11" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="destinohorario_automatico" class="col-sm-2 control-label">{{ 'destinohorario.automatico' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="destinohorario_automatico" name="automatico" ng-model="destinohorario.automatico" class="form-control" maxLength="4" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(destinohorario.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/destinohorario">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

@@ -1,0 +1,40 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Estado' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="estado_id" class="col-sm-2 control-label">{{ 'estado.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="estado_id" name="id" ng-model="estado.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="estado_nombre" class="col-sm-2 control-label">{{ 'estado.nombre' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="estado_nombre" name="nombre" ng-model="estado.nombre" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="estado_tabla" class="col-sm-2 control-label">{{ 'estado.tabla' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="estado_tabla" name="tabla" ng-model="estado.tabla" class="form-control" maxLength="45" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(estado.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/estado">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

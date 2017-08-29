@@ -1,0 +1,61 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Chofer' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="chofer_id" class="col-sm-2 control-label">{{ 'chofer.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="chofer_id" name="id" ng-model="chofer.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="chofer_entidadid" class="col-sm-2 control-label">{{ 'chofer.entidadid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="chofer_entidadid" ng-model="chofer.entidadid" name="entidadid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="entidad in items.entidads" title="{{entidad.label}}" ng-selected="{{entidad.value == chofer.entidadid}}" value="{{entidad.value}}">{{entidad.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="chofer_prioridad" class="col-sm-2 control-label">{{ 'chofer.prioridad' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="chofer_prioridad" name="prioridad" ng-model="chofer.prioridad" class="form-control" maxLength="11" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="chofer_tipolicencia" class="col-sm-2 control-label">{{ 'chofer.tipolicencia' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="chofer_tipolicencia" name="tipolicencia" ng-model="chofer.tipolicencia" class="form-control" maxLength="1" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="chofer_latitud" class="col-sm-2 control-label">{{ 'chofer.latitud' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="chofer_latitud" name="latitud" ng-model="chofer.latitud" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="chofer_logitud" class="col-sm-2 control-label">{{ 'chofer.logitud' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="chofer_logitud" name="logitud" ng-model="chofer.logitud" class="form-control" maxLength="20" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(chofer.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/chofer">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

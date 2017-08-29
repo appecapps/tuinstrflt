@@ -1,0 +1,52 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Viaje' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="viaje_id" class="col-sm-2 control-label">{{ 'viaje.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="viaje_id" name="id" ng-model="viaje.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="viaje_destinohorarioid" class="col-sm-2 control-label">{{ 'viaje.destinohorarioid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="viaje_destinohorarioid" ng-model="viaje.destinohorarioid" name="destinohorarioid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="destinohorario in items.destinohorarios" title="{{destinohorario.label}}" ng-selected="{{destinohorario.value == viaje.destinohorarioid}}" value="{{destinohorario.value}}">{{destinohorario.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="viaje_chofervehiculoid" class="col-sm-2 control-label">{{ 'viaje.chofervehiculoid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="viaje_chofervehiculoid" ng-model="viaje.chofervehiculoid" name="chofervehiculoid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="chofervehiculo in items.chofervehiculos" title="{{chofervehiculo.label}}" ng-selected="{{chofervehiculo.value == viaje.chofervehiculoid}}" value="{{chofervehiculo.value}}">{{chofervehiculo.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="viaje_confirmado" class="col-sm-2 control-label">{{ 'viaje.confirmado' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="viaje_confirmado" name="confirmado" ng-model="viaje.confirmado" class="form-control" maxLength="4" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(viaje.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/viaje">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

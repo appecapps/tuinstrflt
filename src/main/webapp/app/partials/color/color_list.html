@@ -1,0 +1,24 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Color' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'color.id' | translate }}</th>
+						<th>{{ 'color.nombre' | translate }}</th>
+						<th>{{ 'color.activo' | translate }}</th>
+						<th><a class="btn btn-info" href='#/color/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="color in colors">
+						<td>{{color.id}}</td>
+						<td>{{color.nombre}}</td>
+						<td>{{color.activo}}</td>
+						<td><a class="btn btn-info" href="#/color/{{color.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

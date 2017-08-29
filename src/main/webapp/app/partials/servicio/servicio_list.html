@@ -1,0 +1,26 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Servicio' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'servicio.id' | translate }}</th>
+						<th>{{ 'servicio.nombre' | translate }}</th>
+						<th>{{ 'servicio.activo' | translate }}</th>
+						<th>{{ 'servicio.costo' | translate }}</th>
+						<th><a class="btn btn-info" href='#/servicio/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="servicio in servicios">
+						<td>{{servicio.id}}</td>
+						<td>{{servicio.nombre}}</td>
+						<td>{{servicio.activo}}</td>
+						<td>{{servicio.costo | number }}</td>
+						<td><a class="btn btn-info" href="#/servicio/{{servicio.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Chofervehiculo' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'chofervehiculo.id' | translate }}</th>
+						<th>{{ 'chofervehiculo.predeterminado' | translate }}</th>
+						<th><a class="btn btn-info" href='#/chofervehiculo/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="chofervehiculo in chofervehiculos">
+						<td>{{chofervehiculo.id}}</td>
+						<td>{{chofervehiculo.predeterminado}}</td>
+						<td><a class="btn btn-info" href="#/chofervehiculo/{{chofervehiculo.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

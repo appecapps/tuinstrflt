@@ -1,0 +1,52 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Rolitemmenu' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="rolitemmenu_id" class="col-sm-2 control-label">{{ 'rolitemmenu.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="rolitemmenu_id" name="id" ng-model="rolitemmenu.id" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="rolitemmenu_rolid" class="col-sm-2 control-label">{{ 'rolitemmenu.rolid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="rolitemmenu_rolid" ng-model="rolitemmenu.rolid" name="rolid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="rol in items.rols" title="{{rol.label}}" ng-selected="{{rol.value == rolitemmenu.rolid}}" value="{{rol.value}}">{{rol.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="rolitemmenu_itemmenuid" class="col-sm-2 control-label">{{ 'rolitemmenu.itemmenuid' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="rolitemmenu_itemmenuid" ng-model="rolitemmenu.itemmenuid" name="itemmenuid" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="itemmenu in items.itemmenus" title="{{itemmenu.label}}" ng-selected="{{itemmenu.value == rolitemmenu.itemmenuid}}" value="{{itemmenu.value}}">{{itemmenu.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="rolitemmenu_activo" class="col-sm-2 control-label">{{ 'rolitemmenu.activo' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="rolitemmenu_activo" name="activo" ng-model="rolitemmenu.activo" class="form-control" maxLength="4" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(rolitemmenu.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/rolitemmenu">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

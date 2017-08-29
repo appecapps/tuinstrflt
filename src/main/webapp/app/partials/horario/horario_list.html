@@ -1,0 +1,26 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Horario' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'horario.id' | translate }}</th>
+						<th>{{ 'horario.fecha' | translate }}</th>
+						<th>{{ 'horario.hora' | translate }}</th>
+						<th>{{ 'horario.activo' | translate }}</th>
+						<th><a class="btn btn-info" href='#/horario/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="horario in horarios">
+						<td>{{horario.id}}</td>
+						<td>{{horario.fecha | date:'shortDate'}}</td>
+						<td>{{horario.hora | date:'shortDate'}}</td>
+						<td>{{horario.activo}}</td>
+						<td><a class="btn btn-info" href="#/horario/{{horario.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="0" databaseName="MYSQL" databaseProductName="MySQL" generation="2017-08-28 17:50:31">
+<table catalog="app" databaseType="TABLE" javaBean="Chofer" name="chofer" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="entidadId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="entidadid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Entidadid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="10" dbName="prioridad" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="prioridad" javaType="java.lang.Integer" jdbcTypeCode="4" label="Prioridad" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="tipoLicencia" dbNotNull="false" dbPosition="4" dbSize="1" dbTypeName="VARCHAR" inputType="text" javaName="tipolicencia" javaType="java.lang.String" jdbcTypeCode="12" label="Tipolicencia" maxLength="1" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="latitud" dbNotNull="false" dbPosition="5" dbSize="11" dbTypeName="DECIMAL" inputType="number" javaName="latitud" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Latitud" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="logitud" dbNotNull="false" dbPosition="6" dbSize="11" dbTypeName="DECIMAL" inputType="number" javaName="logitud" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Logitud" notNull="false" selected="true"/>
+<fk name="fk_chofer_entidad1">
+<fkcol colname="entidadId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="chofer" tableref="entidad" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_chofer_entidad1" id="LINK_FK_fk_chofer_entidad1_O" inverseSideOf="" javaName="entidad" javaType="Entidad" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="chofer" targetEntity="Entidad" targetTableName="entidad" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="entidadId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_choferVehiculo_chofer1" id="LINK_FK_fk_choferVehiculo_chofer1_I" inverseSideOf="LINK_FK_fk_choferVehiculo_chofer1_O" javaName="listOfChofervehiculo" javaType="java.util.List" joinTableName="" mappedBy="chofer" optional="UNDEFINED" owningSide="false" sourceTableName="chofer" targetEntity="Chofervehiculo" targetTableName="chofervehiculo" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Chofervehiculo" name="chofervehiculo" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="choferId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="choferid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Choferid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="vehiculoId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="vehiculoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Vehiculoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="predeterminado" dbNotNull="true" dbPosition="4" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="predeterminado" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Predeterminado" notNull="true" selected="true"/>
+<fk name="fk_choferVehiculo_chofer1">
+<fkcol colname="choferId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="chofervehiculo" tableref="chofer" updaterule="3"/>
+</fk>
+<fk name="fk_choferVehiculo_vehiculo1">
+<fkcol colname="vehiculoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="chofervehiculo" tableref="vehiculo" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_choferVehiculo_vehiculo1" id="LINK_FK_fk_choferVehiculo_vehiculo1_O" inverseSideOf="" javaName="vehiculo" javaType="Vehiculo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="chofervehiculo" targetEntity="Vehiculo" targetTableName="vehiculo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="vehiculoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_choferVehiculo_chofer1" id="LINK_FK_fk_choferVehiculo_chofer1_O" inverseSideOf="" javaName="chofer" javaType="Chofer" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="chofervehiculo" targetEntity="Chofer" targetTableName="chofer" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="choferId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_viaje_choferVehiculo1" id="LINK_FK_fk_viaje_choferVehiculo1_I" inverseSideOf="LINK_FK_fk_viaje_choferVehiculo1_O" javaName="listOfViaje" javaType="java.util.List" joinTableName="" mappedBy="chofervehiculo" optional="UNDEFINED" owningSide="false" sourceTableName="chofervehiculo" targetEntity="Viaje" targetTableName="viaje" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Ciudad" name="ciudad" schema="">
+<column dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="3" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="costo" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="DECIMAL" inputType="number" javaName="costo" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Costo" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="provinciaId" dbNotNull="true" dbPosition="5" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="provinciaid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Provinciaid" notNull="true" selected="true"/>
+<fk name="fk_ciudad_provincia1">
+<fkcol colname="provinciaId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="ciudad" tableref="provincia" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_destinoHorario_destino1" id="LINK_FK_fk_destinoHorario_destino1_I" inverseSideOf="LINK_FK_fk_destinoHorario_destino1_O" javaName="listOfDestinohorario" javaType="java.util.List" joinTableName="" mappedBy="ciudad" optional="UNDEFINED" owningSide="false" sourceTableName="ciudad" targetEntity="Destinohorario" targetTableName="destinohorario" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_ciudad_provincia1" id="LINK_FK_fk_ciudad_provincia1_O" inverseSideOf="" javaName="provincia" javaType="Provincia" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="ciudad" targetEntity="Provincia" targetTableName="provincia" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="provinciaId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Cliente" name="cliente" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="entidadId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="entidadid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Entidadid" notNull="true" selected="true"/>
+<fk name="fk_cliente_entidad">
+<fkcol colname="entidadId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="cliente" tableref="entidad" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_clienteViaje_cliente1" id="LINK_FK_fk_clienteViaje_cliente1_I" inverseSideOf="LINK_FK_fk_clienteViaje_cliente1_O" javaName="listOfClienteviaje" javaType="java.util.List" joinTableName="" mappedBy="cliente" optional="UNDEFINED" owningSide="false" sourceTableName="cliente" targetEntity="Clienteviaje" targetTableName="clienteviaje" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_cliente_entidad" id="LINK_FK_fk_cliente_entidad_O" inverseSideOf="" javaName="entidad" javaType="Entidad" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="cliente" targetEntity="Entidad" targetTableName="entidad" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="entidadId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Clienteviaje" name="clienteviaje" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="viajeId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="viajeid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Viajeid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="clienteId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="clienteid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Clienteid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="latitud" dbNotNull="true" dbPosition="4" dbSize="11" dbTypeName="DECIMAL" inputType="number" javaName="latitud" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Latitud" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="longitud" dbNotNull="true" dbPosition="5" dbSize="11" dbTypeName="DECIMAL" inputType="number" javaName="longitud" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Longitud" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="pasajeros" dbNotNull="true" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="pasajeros" javaType="java.lang.Integer" jdbcTypeCode="4" label="Pasajeros" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="estadoId" dbNotNull="true" dbPosition="7" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="estadoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Estadoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="0.00" dbName="costo" dbNotNull="true" dbPosition="8" dbSize="10" dbTypeName="DECIMAL" inputType="number" javaName="costo" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Costo" notNull="true" selected="true"/>
+<fk name="fk_clienteViaje_cliente1">
+<fkcol colname="clienteId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="clienteviaje" tableref="cliente" updaterule="3"/>
+</fk>
+<fk name="fk_clienteViaje_estado1">
+<fkcol colname="estadoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="clienteviaje" tableref="estado" updaterule="3"/>
+</fk>
+<fk name="fk_clienteViaje_viaje1">
+<fkcol colname="viajeId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="clienteviaje" tableref="viaje" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_clienteViaje_viaje1" id="LINK_FK_fk_clienteViaje_viaje1_O" inverseSideOf="" javaName="viaje" javaType="Viaje" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="clienteviaje" targetEntity="Viaje" targetTableName="viaje" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="viajeId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_clienteViaje_cliente1" id="LINK_FK_fk_clienteViaje_cliente1_O" inverseSideOf="" javaName="cliente" javaType="Cliente" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="clienteviaje" targetEntity="Cliente" targetTableName="cliente" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="clienteId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_clienteViaje_estado1" id="LINK_FK_fk_clienteViaje_estado1_O" inverseSideOf="" javaName="estado" javaType="Estado" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="clienteviaje" targetEntity="Estado" targetTableName="estado" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="estadoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_clienteViajeServicio_clienteViaje1" id="LINK_FK_fk_clienteViajeServicio_clienteViaje1_I" inverseSideOf="LINK_FK_fk_clienteViajeServicio_clienteViaje1_O" javaName="listOfClienteviajeservicio" javaType="java.util.List" joinTableName="" mappedBy="clienteviaje" optional="UNDEFINED" owningSide="false" sourceTableName="clienteviaje" targetEntity="Clienteviajeservicio" targetTableName="clienteviajeservicio" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Clienteviajeservicio" name="clienteviajeservicio" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="clienteViajeId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="clienteviajeid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Clienteviajeid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="vehiculoServicioId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="vehiculoservicioid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Vehiculoservicioid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="cantidad" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="cantidad" javaType="java.lang.Integer" jdbcTypeCode="4" label="Cantidad" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="costo" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="DECIMAL" inputType="number" javaName="costo" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Costo" notNull="true" selected="true"/>
+<fk name="fk_clienteViajeServicio_clienteViaje1">
+<fkcol colname="clienteViajeId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="clienteviajeservicio" tableref="clienteviaje" updaterule="3"/>
+</fk>
+<fk name="fk_clienteViajeServicio_vehiculoServicio1">
+<fkcol colname="vehiculoServicioId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="clienteviajeservicio" tableref="vehiculoservicio" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_clienteViajeServicio_clienteViaje1" id="LINK_FK_fk_clienteViajeServicio_clienteViaje1_O" inverseSideOf="" javaName="clienteviaje" javaType="Clienteviaje" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="clienteviajeservicio" targetEntity="Clienteviaje" targetTableName="clienteviaje" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="clienteViajeId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_clienteViajeServicio_vehiculoServicio1" id="LINK_FK_fk_clienteViajeServicio_vehiculoServicio1_O" inverseSideOf="" javaName="vehiculoservicio" javaType="Vehiculoservicio" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="clienteviajeservicio" targetEntity="Vehiculoservicio" targetTableName="vehiculoservicio" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="vehiculoServicioId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Color" name="color" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="3" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_vehiculo_color1" id="LINK_FK_fk_vehiculo_color1_I" inverseSideOf="LINK_FK_fk_vehiculo_color1_O" javaName="listOfVehiculo" javaType="java.util.List" joinTableName="" mappedBy="color" optional="UNDEFINED" owningSide="false" sourceTableName="color" targetEntity="Vehiculo" targetTableName="vehiculo" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Componentedocumento" name="componentedocumento" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="valor" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="DECIMAL" inputType="number" javaName="valor" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Valor" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="documentoId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="documentoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Documentoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="componenteFinancieroId" dbNotNull="true" dbPosition="4" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="componentefinancieroid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Componentefinancieroid" notNull="true" selected="true"/>
+<fk name="fk_componenteDocumento_componenteFinanciero1">
+<fkcol colname="componenteFinancieroId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="componentedocumento" tableref="componentefinanciero" updaterule="3"/>
+</fk>
+<fk name="fk_componenteDocumento_documento1">
+<fkcol colname="documentoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="componentedocumento" tableref="documento" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_componenteDocumento_componenteFinanciero1" id="LINK_FK_fk_componenteDocumento_componenteFinanciero1_O" inverseSideOf="" javaName="componentefinanciero" javaType="Componentefinanciero" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="componentedocumento" targetEntity="Componentefinanciero" targetTableName="componentefinanciero" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="componenteFinancieroId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_componenteDocumento_documento1" id="LINK_FK_fk_componenteDocumento_documento1_O" inverseSideOf="" javaName="documento" javaType="Documento" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="componentedocumento" targetEntity="Documento" targetTableName="documento" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="documentoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Componentefinanciero" name="componentefinanciero" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="vigenciaDesde" dbNotNull="true" dbPosition="3" dbSize="26" dbTypeName="DATETIME" inputType="" javaName="vigenciadesde" javaType="java.util.Date" jdbcTypeCode="93" label="Vigenciadesde" notNull="true" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="vigenciaHasta" dbNotNull="true" dbPosition="4" dbSize="26" dbTypeName="DATETIME" inputType="" javaName="vigenciahasta" javaType="java.util.Date" jdbcTypeCode="93" label="Vigenciahasta" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="tipoDocumentoId" dbNotNull="true" dbPosition="5" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="tipodocumentoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Tipodocumentoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="tipoComponenteFinancieroId" dbNotNull="true" dbPosition="6" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="tipocomponentefinancieroid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Tipocomponentefinancieroid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="rubro" dbNotNull="true" dbPosition="7" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="rubro" javaType="java.lang.String" jdbcTypeCode="12" label="Rubro" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<fk name="fk_componenteFinanciero_tipoComponenteFinanciero1">
+<fkcol colname="tipoComponenteFinancieroId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="componentefinanciero" tableref="tipocomponentefinanciero" updaterule="3"/>
+</fk>
+<fk name="fk_componenteFinanciero_tipoDocumento1">
+<fkcol colname="tipoDocumentoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="componentefinanciero" tableref="tipodocumento" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_componenteDocumento_componenteFinanciero1" id="LINK_FK_fk_componenteDocumento_componenteFinanciero1_I" inverseSideOf="LINK_FK_fk_componenteDocumento_componenteFinanciero1_O" javaName="listOfComponentedocumento" javaType="java.util.List" joinTableName="" mappedBy="componentefinanciero" optional="UNDEFINED" owningSide="false" sourceTableName="componentefinanciero" targetEntity="Componentedocumento" targetTableName="componentedocumento" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_componenteFinanciero_tipoDocumento1" id="LINK_FK_fk_componenteFinanciero_tipoDocumento1_O" inverseSideOf="" javaName="tipodocumento" javaType="Tipodocumento" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="componentefinanciero" targetEntity="Tipodocumento" targetTableName="tipodocumento" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="tipoDocumentoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_componenteFinanciero_tipoComponenteFinanciero1" id="LINK_FK_fk_componenteFinanciero_tipoComponenteFinanciero1_O" inverseSideOf="" javaName="tipocomponentefinanciero" javaType="Tipocomponentefinanciero" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="componentefinanciero" targetEntity="Tipocomponentefinanciero" targetTableName="tipocomponentefinanciero" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="tipoComponenteFinancieroId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Destinohorario" name="destinohorario" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="horarioId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="horarioid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Horarioid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="destinoId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="destinoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Destinoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="costo" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="DECIMAL" inputType="number" javaName="costo" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Costo" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="minimoPasajeros" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="minimopasajeros" javaType="java.lang.Integer" jdbcTypeCode="4" label="Minimopasajeros" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="automatico" dbNotNull="true" dbPosition="6" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="automatico" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Automatico" notNull="true" selected="true"/>
+<fk name="fk_destinoHorario_destino1">
+<fkcol colname="destinoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="destinohorario" tableref="ciudad" updaterule="3"/>
+</fk>
+<fk name="fk_destinoHorario_horario1">
+<fkcol colname="horarioId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="destinohorario" tableref="horario" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_destinoHorario_destino1" id="LINK_FK_fk_destinoHorario_destino1_O" inverseSideOf="" javaName="ciudad" javaType="Ciudad" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="destinohorario" targetEntity="Ciudad" targetTableName="ciudad" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="destinoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_destinoHorario_horario1" id="LINK_FK_fk_destinoHorario_horario1_O" inverseSideOf="" javaName="horario" javaType="Horario" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="destinohorario" targetEntity="Horario" targetTableName="horario" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="horarioId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_viaje_destinoHorario1" id="LINK_FK_fk_viaje_destinoHorario1_I" inverseSideOf="LINK_FK_fk_viaje_destinoHorario1_O" javaName="listOfViaje" javaType="java.util.List" joinTableName="" mappedBy="destinohorario" optional="UNDEFINED" owningSide="false" sourceTableName="destinohorario" targetEntity="Viaje" targetTableName="viaje" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Documento" name="documento" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="numero" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="numero" javaType="java.lang.String" jdbcTypeCode="12" label="Numero" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="descripcion" dbNotNull="true" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="descripcion" javaType="java.lang.String" jdbcTypeCode="12" label="Descripcion" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="valor" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="DECIMAL" inputType="number" javaName="valor" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Valor" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="origenId" dbNotNull="true" dbPosition="5" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="origenid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Origenid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="origen" dbNotNull="true" dbPosition="6" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="origen" javaType="java.lang.String" jdbcTypeCode="12" label="Origen" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="estadoId" dbNotNull="true" dbPosition="7" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="estadoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Estadoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="tipoDocumentoId" dbNotNull="true" dbPosition="8" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="tipodocumentoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Tipodocumentoid" notNull="true" selected="true"/>
+<fk name="fk_documento_estado1">
+<fkcol colname="estadoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="documento" tableref="estado" updaterule="3"/>
+</fk>
+<fk name="fk_documento_tipoDocumento1">
+<fkcol colname="tipoDocumentoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="documento" tableref="tipodocumento" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_formaPagoDocumento_documento1" id="LINK_FK_fk_formaPagoDocumento_documento1_I" inverseSideOf="LINK_FK_fk_formaPagoDocumento_documento1_O" javaName="listOfFormapagodocumento" javaType="java.util.List" joinTableName="" mappedBy="documento" optional="UNDEFINED" owningSide="false" sourceTableName="documento" targetEntity="Formapagodocumento" targetTableName="formapagodocumento" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_documento_estado1" id="LINK_FK_fk_documento_estado1_O" inverseSideOf="" javaName="estado" javaType="Estado" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="documento" targetEntity="Estado" targetTableName="estado" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="estadoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_documento_tipoDocumento1" id="LINK_FK_fk_documento_tipoDocumento1_O" inverseSideOf="" javaName="tipodocumento" javaType="Tipodocumento" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="documento" targetEntity="Tipodocumento" targetTableName="tipodocumento" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="tipoDocumentoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_facturaElectronica_documento1" id="LINK_FK_fk_facturaElectronica_documento1_I" inverseSideOf="LINK_FK_fk_facturaElectronica_documento1_O" javaName="listOfFacturaelectronica" javaType="java.util.List" joinTableName="" mappedBy="documento" optional="UNDEFINED" owningSide="false" sourceTableName="documento" targetEntity="Facturaelectronica" targetTableName="facturaelectronica" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_componenteDocumento_documento1" id="LINK_FK_fk_componenteDocumento_documento1_I" inverseSideOf="LINK_FK_fk_componenteDocumento_documento1_O" javaName="listOfComponentedocumento" javaType="java.util.List" joinTableName="" mappedBy="documento" optional="UNDEFINED" owningSide="false" sourceTableName="documento" targetEntity="Componentedocumento" targetTableName="componentedocumento" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Entidad" name="entidad" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="identificacion" dbNotNull="true" dbPosition="2" dbSize="20" dbTypeName="VARCHAR" inputType="text" javaName="identificacion" javaType="java.lang.String" jdbcTypeCode="12" label="Identificacion" maxLength="20" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="3" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="200" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="apellido" dbNotNull="false" dbPosition="4" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="apellido" javaType="java.lang.String" jdbcTypeCode="12" label="Apellido" maxLength="200" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="correo" dbNotNull="false" dbPosition="5" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="correo" javaType="java.lang.String" jdbcTypeCode="12" label="Correo" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="password" dbNotNull="false" dbPosition="6" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="password" javaType="java.lang.String" jdbcTypeCode="12" label="Password" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="7" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="0" dbName="web" dbNotNull="false" dbPosition="8" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="web" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Web" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_entidadRol_entidad1" id="LINK_FK_fk_entidadRol_entidad1_I" inverseSideOf="LINK_FK_fk_entidadRol_entidad1_O" javaName="listOfEntidadrol" javaType="java.util.List" joinTableName="" mappedBy="entidad" optional="UNDEFINED" owningSide="false" sourceTableName="entidad" targetEntity="Entidadrol" targetTableName="entidadrol" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_cliente_entidad" id="LINK_FK_fk_cliente_entidad_I" inverseSideOf="LINK_FK_fk_cliente_entidad_O" javaName="listOfCliente" javaType="java.util.List" joinTableName="" mappedBy="entidad" optional="UNDEFINED" owningSide="false" sourceTableName="entidad" targetEntity="Cliente" targetTableName="cliente" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_chofer_entidad1" id="LINK_FK_fk_chofer_entidad1_I" inverseSideOf="LINK_FK_fk_chofer_entidad1_O" javaName="listOfChofer" javaType="java.util.List" joinTableName="" mappedBy="entidad" optional="UNDEFINED" owningSide="false" sourceTableName="entidad" targetEntity="Chofer" targetTableName="chofer" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Entidadrol" name="entidadrol" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="rolId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="rolid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Rolid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="entidadId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="entidadid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Entidadid" notNull="true" selected="true"/>
+<fk name="fk_entidadRol_entidad1">
+<fkcol colname="entidadId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="entidadrol" tableref="entidad" updaterule="3"/>
+</fk>
+<fk name="fk_usuarioRol_rol1">
+<fkcol colname="rolId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="entidadrol" tableref="rol" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_usuarioRol_rol1" id="LINK_FK_fk_usuarioRol_rol1_O" inverseSideOf="" javaName="rol" javaType="Rol" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="entidadrol" targetEntity="Rol" targetTableName="rol" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="rolId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_entidadRol_entidad1" id="LINK_FK_fk_entidadRol_entidad1_O" inverseSideOf="" javaName="entidad" javaType="Entidad" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="entidadrol" targetEntity="Entidad" targetTableName="entidad" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="entidadId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Estado" name="estado" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="tabla" dbNotNull="true" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="tabla" javaType="java.lang.String" jdbcTypeCode="12" label="Tabla" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_clienteViaje_estado1" id="LINK_FK_fk_clienteViaje_estado1_I" inverseSideOf="LINK_FK_fk_clienteViaje_estado1_O" javaName="listOfClienteviaje" javaType="java.util.List" joinTableName="" mappedBy="estado" optional="UNDEFINED" owningSide="false" sourceTableName="estado" targetEntity="Clienteviaje" targetTableName="clienteviaje" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_documento_estado1" id="LINK_FK_fk_documento_estado1_I" inverseSideOf="LINK_FK_fk_documento_estado1_O" javaName="listOfDocumento" javaType="java.util.List" joinTableName="" mappedBy="estado" optional="UNDEFINED" owningSide="false" sourceTableName="estado" targetEntity="Documento" targetTableName="documento" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_facturaElectronica_estado1" id="LINK_FK_fk_facturaElectronica_estado1_I" inverseSideOf="LINK_FK_fk_facturaElectronica_estado1_O" javaName="listOfFacturaelectronica" javaType="java.util.List" joinTableName="" mappedBy="estado" optional="UNDEFINED" owningSide="false" sourceTableName="estado" targetEntity="Facturaelectronica" targetTableName="facturaelectronica" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Facturaelectronica" name="facturaelectronica" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="claveAcceso" dbNotNull="true" dbPosition="2" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="claveacceso" javaType="java.lang.String" jdbcTypeCode="12" label="Claveacceso" maxLength="100" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="estadoId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="estadoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Estadoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="documentoId" dbNotNull="true" dbPosition="4" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="documentoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Documentoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="respuesta" dbNotNull="true" dbPosition="5" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="respuesta" javaType="java.lang.String" jdbcTypeCode="12" label="Respuesta" maxLength="200" notEmpty="true" notNull="true" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="fechaAutorizacion" dbNotNull="true" dbPosition="6" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fechaautorizacion" javaType="java.util.Date" jdbcTypeCode="91" label="Fechaautorizacion" notNull="true" selected="true"/>
+<fk name="fk_facturaElectronica_documento1">
+<fkcol colname="documentoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="facturaelectronica" tableref="documento" updaterule="3"/>
+</fk>
+<fk name="fk_facturaElectronica_estado1">
+<fkcol colname="estadoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="facturaelectronica" tableref="estado" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_facturaElectronica_estado1" id="LINK_FK_fk_facturaElectronica_estado1_O" inverseSideOf="" javaName="estado" javaType="Estado" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="facturaelectronica" targetEntity="Estado" targetTableName="estado" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="estadoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_facturaElectronica_documento1" id="LINK_FK_fk_facturaElectronica_documento1_O" inverseSideOf="" javaName="documento" javaType="Documento" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="facturaelectronica" targetEntity="Documento" targetTableName="documento" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="documentoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Formapago" name="formapago" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="3" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="tipoDocumentoId" dbNotNull="true" dbPosition="4" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="tipodocumentoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Tipodocumentoid" notNull="true" selected="true"/>
+<fk name="fk_formaPago_tipoDocumento1">
+<fkcol colname="tipoDocumentoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="formapago" tableref="tipodocumento" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_formaPagoDocumento_formaPago1" id="LINK_FK_fk_formaPagoDocumento_formaPago1_I" inverseSideOf="LINK_FK_fk_formaPagoDocumento_formaPago1_O" javaName="listOfFormapagodocumento" javaType="java.util.List" joinTableName="" mappedBy="formapago" optional="UNDEFINED" owningSide="false" sourceTableName="formapago" targetEntity="Formapagodocumento" targetTableName="formapagodocumento" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_formaPago_tipoDocumento1" id="LINK_FK_fk_formaPago_tipoDocumento1_O" inverseSideOf="" javaName="tipodocumento" javaType="Tipodocumento" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="formapago" targetEntity="Tipodocumento" targetTableName="tipodocumento" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="tipoDocumentoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Formapagodocumento" name="formapagodocumento" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="documentoId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="documentoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Documentoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="formaPagoId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="formapagoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Formapagoid" notNull="true" selected="true"/>
+<fk name="fk_formaPagoDocumento_documento1">
+<fkcol colname="documentoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="formapagodocumento" tableref="documento" updaterule="3"/>
+</fk>
+<fk name="fk_formaPagoDocumento_formaPago1">
+<fkcol colname="formaPagoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="formapagodocumento" tableref="formapago" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_formaPagoDocumento_documento1" id="LINK_FK_fk_formaPagoDocumento_documento1_O" inverseSideOf="" javaName="documento" javaType="Documento" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="formapagodocumento" targetEntity="Documento" targetTableName="documento" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="documentoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_formaPagoDocumento_formaPago1" id="LINK_FK_fk_formaPagoDocumento_formaPago1_O" inverseSideOf="" javaName="formapago" javaType="Formapago" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="formapagodocumento" targetEntity="Formapago" targetTableName="formapago" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="formaPagoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Horario" name="horario" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="fecha" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="DATE" inputType="date" javaName="fecha" javaType="java.util.Date" jdbcTypeCode="91" label="Fecha" notNull="true" selected="true"/>
+<column dateType="T" dbComment="" dbDefaultValue="" dbName="hora" dbNotNull="true" dbPosition="3" dbSize="16" dbTypeName="TIME" inputType="time" javaName="hora" javaType="java.util.Date" jdbcTypeCode="92" label="Hora" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="activo" dbNotNull="true" dbPosition="4" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_destinoHorario_horario1" id="LINK_FK_fk_destinoHorario_horario1_I" inverseSideOf="LINK_FK_fk_destinoHorario_horario1_O" javaName="listOfDestinohorario" javaType="java.util.List" joinTableName="" mappedBy="horario" optional="UNDEFINED" owningSide="false" sourceTableName="horario" targetEntity="Destinohorario" targetTableName="destinohorario" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Itemmenu" name="itemmenu" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="link" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="link" javaType="java.lang.String" jdbcTypeCode="12" label="Link" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="menuId" dbNotNull="true" dbPosition="4" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="menuid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Menuid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="orden" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="orden" javaType="java.lang.Integer" jdbcTypeCode="4" label="Orden" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="6" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<fk name="fk_itemMenu_menu1">
+<fkcol colname="menuId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="itemmenu" tableref="menu" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_rolItemMenu_itemMenu1" id="LINK_FK_fk_rolItemMenu_itemMenu1_I" inverseSideOf="LINK_FK_fk_rolItemMenu_itemMenu1_O" javaName="listOfRolitemmenu" javaType="java.util.List" joinTableName="" mappedBy="itemmenu" optional="UNDEFINED" owningSide="false" sourceTableName="itemmenu" targetEntity="Rolitemmenu" targetTableName="rolitemmenu" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_itemMenu_menu1" id="LINK_FK_fk_itemMenu_menu1_O" inverseSideOf="" javaName="menu" javaType="Menu" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="itemmenu" targetEntity="Menu" targetTableName="menu" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="menuId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Marca" name="marca" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="3" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_modelo_marca1" id="LINK_FK_fk_modelo_marca1_I" inverseSideOf="LINK_FK_fk_modelo_marca1_O" javaName="listOfModelo" javaType="java.util.List" joinTableName="" mappedBy="marca" optional="UNDEFINED" owningSide="false" sourceTableName="marca" targetEntity="Modelo" targetTableName="modelo" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Menu" name="menu" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="orden" dbNotNull="true" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="orden" javaType="java.lang.String" jdbcTypeCode="12" label="Orden" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="4" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_itemMenu_menu1" id="LINK_FK_fk_itemMenu_menu1_I" inverseSideOf="LINK_FK_fk_itemMenu_menu1_O" javaName="listOfItemmenu" javaType="java.util.List" joinTableName="" mappedBy="menu" optional="UNDEFINED" owningSide="false" sourceTableName="menu" targetEntity="Itemmenu" targetTableName="itemmenu" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Modelo" name="modelo" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="marcaId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="marcaid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Marcaid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="tipoVehiculoId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="tipovehiculoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Tipovehiculoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="4" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="5" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<fk name="fk_modelo_marca1">
+<fkcol colname="marcaId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="modelo" tableref="marca" updaterule="3"/>
+</fk>
+<fk name="fk_modelo_tipoVehiculo1">
+<fkcol colname="tipoVehiculoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="modelo" tableref="tipovehiculo" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_modelo_tipoVehiculo1" id="LINK_FK_fk_modelo_tipoVehiculo1_O" inverseSideOf="" javaName="tipovehiculo" javaType="Tipovehiculo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="modelo" targetEntity="Tipovehiculo" targetTableName="tipovehiculo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="tipoVehiculoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_modelo_marca1" id="LINK_FK_fk_modelo_marca1_O" inverseSideOf="" javaName="marca" javaType="Marca" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="modelo" targetEntity="Marca" targetTableName="marca" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="marcaId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_vehiculo_modelo1" id="LINK_FK_fk_vehiculo_modelo1_I" inverseSideOf="LINK_FK_fk_vehiculo_modelo1_O" javaName="listOfVehiculo" javaType="java.util.List" joinTableName="" mappedBy="modelo" optional="UNDEFINED" owningSide="false" sourceTableName="modelo" targetEntity="Vehiculo" targetTableName="vehiculo" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Provincia" name="provincia" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_ciudad_provincia1" id="LINK_FK_fk_ciudad_provincia1_I" inverseSideOf="LINK_FK_fk_ciudad_provincia1_O" javaName="listOfCiudad" javaType="java.util.List" joinTableName="" mappedBy="provincia" optional="UNDEFINED" owningSide="false" sourceTableName="provincia" targetEntity="Ciudad" targetTableName="ciudad" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Rol" name="rol" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="3" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_rolItemMenu_rol1" id="LINK_FK_fk_rolItemMenu_rol1_I" inverseSideOf="LINK_FK_fk_rolItemMenu_rol1_O" javaName="listOfRolitemmenu" javaType="java.util.List" joinTableName="" mappedBy="rol" optional="UNDEFINED" owningSide="false" sourceTableName="rol" targetEntity="Rolitemmenu" targetTableName="rolitemmenu" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_usuarioRol_rol1" id="LINK_FK_fk_usuarioRol_rol1_I" inverseSideOf="LINK_FK_fk_usuarioRol_rol1_O" javaName="listOfEntidadrol" javaType="java.util.List" joinTableName="" mappedBy="rol" optional="UNDEFINED" owningSide="false" sourceTableName="rol" targetEntity="Entidadrol" targetTableName="entidadrol" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Rolitemmenu" name="rolitemmenu" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="rolId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="rolid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Rolid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="itemMenuId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="itemmenuid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Itemmenuid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="4" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<fk name="fk_rolItemMenu_itemMenu1">
+<fkcol colname="itemMenuId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="rolitemmenu" tableref="itemmenu" updaterule="3"/>
+</fk>
+<fk name="fk_rolItemMenu_rol1">
+<fkcol colname="rolId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="rolitemmenu" tableref="rol" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_rolItemMenu_rol1" id="LINK_FK_fk_rolItemMenu_rol1_O" inverseSideOf="" javaName="rol" javaType="Rol" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="rolitemmenu" targetEntity="Rol" targetTableName="rol" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="rolId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_rolItemMenu_itemMenu1" id="LINK_FK_fk_rolItemMenu_itemMenu1_O" inverseSideOf="" javaName="itemmenu" javaType="Itemmenu" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="rolitemmenu" targetEntity="Itemmenu" targetTableName="itemmenu" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="itemMenuId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Servicio" name="servicio" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activo" dbNotNull="true" dbPosition="3" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activo" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activo" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="0" dbName="costo" dbNotNull="true" dbPosition="4" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="costo" javaType="java.lang.Double" jdbcTypeCode="8" label="Costo" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_vehiculoServicio_servicio1" id="LINK_FK_fk_vehiculoServicio_servicio1_I" inverseSideOf="LINK_FK_fk_vehiculoServicio_servicio1_O" javaName="listOfVehiculoservicio" javaType="java.util.List" joinTableName="" mappedBy="servicio" optional="UNDEFINED" owningSide="false" sourceTableName="servicio" targetEntity="Vehiculoservicio" targetTableName="vehiculoservicio" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Tipocartera" name="tipocartera" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_tipoDocumento_tipoCartera1" id="LINK_FK_fk_tipoDocumento_tipoCartera1_I" inverseSideOf="LINK_FK_fk_tipoDocumento_tipoCartera1_O" javaName="listOfTipodocumento" javaType="java.util.List" joinTableName="" mappedBy="tipocartera" optional="UNDEFINED" owningSide="false" sourceTableName="tipocartera" targetEntity="Tipodocumento" targetTableName="tipodocumento" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Tipocomponentefinanciero" name="tipocomponentefinanciero" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_componenteFinanciero_tipoComponenteFinanciero1" id="LINK_FK_fk_componenteFinanciero_tipoComponenteFinanciero1_I" inverseSideOf="LINK_FK_fk_componenteFinanciero_tipoComponenteFinanciero1_O" javaName="listOfComponentefinanciero" javaType="java.util.List" joinTableName="" mappedBy="tipocomponentefinanciero" optional="UNDEFINED" owningSide="false" sourceTableName="tipocomponentefinanciero" targetEntity="Componentefinanciero" targetTableName="componentefinanciero" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Tipodocumento" name="tipodocumento" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="tipoCarteraId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="tipocarteraid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Tipocarteraid" notNull="true" selected="true"/>
+<fk name="fk_tipoDocumento_tipoCartera1">
+<fkcol colname="tipoCarteraId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="tipodocumento" tableref="tipocartera" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_formaPago_tipoDocumento1" id="LINK_FK_fk_formaPago_tipoDocumento1_I" inverseSideOf="LINK_FK_fk_formaPago_tipoDocumento1_O" javaName="listOfFormapago" javaType="java.util.List" joinTableName="" mappedBy="tipodocumento" optional="UNDEFINED" owningSide="false" sourceTableName="tipodocumento" targetEntity="Formapago" targetTableName="formapago" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_componenteFinanciero_tipoDocumento1" id="LINK_FK_fk_componenteFinanciero_tipoDocumento1_I" inverseSideOf="LINK_FK_fk_componenteFinanciero_tipoDocumento1_O" javaName="listOfComponentefinanciero" javaType="java.util.List" joinTableName="" mappedBy="tipodocumento" optional="UNDEFINED" owningSide="false" sourceTableName="tipodocumento" targetEntity="Componentefinanciero" targetTableName="componentefinanciero" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_documento_tipoDocumento1" id="LINK_FK_fk_documento_tipoDocumento1_I" inverseSideOf="LINK_FK_fk_documento_tipoDocumento1_O" javaName="listOfDocumento" javaType="java.util.List" joinTableName="" mappedBy="tipodocumento" optional="UNDEFINED" owningSide="false" sourceTableName="tipodocumento" targetEntity="Documento" targetTableName="documento" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_tipoDocumento_tipoCartera1" id="LINK_FK_fk_tipoDocumento_tipoCartera1_O" inverseSideOf="" javaName="tipocartera" javaType="Tipocartera" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="tipodocumento" targetEntity="Tipocartera" targetTableName="tipocartera" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="tipoCarteraId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Tipovehiculo" name="tipovehiculo" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nombre" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="nombre" javaType="java.lang.String" jdbcTypeCode="12" label="Nombre" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_modelo_tipoVehiculo1" id="LINK_FK_fk_modelo_tipoVehiculo1_I" inverseSideOf="LINK_FK_fk_modelo_tipoVehiculo1_O" javaName="listOfModelo" javaType="java.util.List" joinTableName="" mappedBy="tipovehiculo" optional="UNDEFINED" owningSide="false" sourceTableName="tipovehiculo" targetEntity="Modelo" targetTableName="modelo" used="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Variables" name="variables" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="contenido" dbNotNull="true" dbPosition="2" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="contenido" javaType="java.lang.String" jdbcTypeCode="12" label="Contenido" maxLength="200" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="1" dbName="activa" dbNotNull="true" dbPosition="3" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="activa" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Activa" notNull="true" selected="true"/>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Vehiculo" name="vehiculo" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="placa" dbNotNull="true" dbPosition="2" dbSize="25" dbTypeName="VARCHAR" inputType="text" javaName="placa" javaType="java.lang.String" jdbcTypeCode="12" label="Placa" maxLength="25" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="motor" dbNotNull="true" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="motor" javaType="java.lang.String" jdbcTypeCode="12" label="Motor" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="chasis" dbNotNull="true" dbPosition="4" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="chasis" javaType="java.lang.String" jdbcTypeCode="12" label="Chasis" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="modeloId" dbNotNull="true" dbPosition="5" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="modeloid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Modeloid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="colorId" dbNotNull="true" dbPosition="6" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="colorid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Colorid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="pasajeros" dbNotNull="true" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="pasajeros" javaType="java.lang.Integer" jdbcTypeCode="4" label="Pasajeros" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="anio" dbNotNull="true" dbPosition="8" dbSize="10" dbTypeName="INT" inputType="number" javaName="anio" javaType="java.lang.Integer" jdbcTypeCode="4" label="Anio" notNull="true" selected="true"/>
+<fk name="fk_vehiculo_color1">
+<fkcol colname="colorId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="vehiculo" tableref="color" updaterule="3"/>
+</fk>
+<fk name="fk_vehiculo_modelo1">
+<fkcol colname="modeloId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="vehiculo" tableref="modelo" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_vehiculo_modelo1" id="LINK_FK_fk_vehiculo_modelo1_O" inverseSideOf="" javaName="modelo" javaType="Modelo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="vehiculo" targetEntity="Modelo" targetTableName="modelo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="modeloId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_vehiculoServicio_vehiculo1" id="LINK_FK_fk_vehiculoServicio_vehiculo1_I" inverseSideOf="LINK_FK_fk_vehiculoServicio_vehiculo1_O" javaName="listOfVehiculoservicio" javaType="java.util.List" joinTableName="" mappedBy="vehiculo" optional="UNDEFINED" owningSide="false" sourceTableName="vehiculo" targetEntity="Vehiculoservicio" targetTableName="vehiculoservicio" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_choferVehiculo_vehiculo1" id="LINK_FK_fk_choferVehiculo_vehiculo1_I" inverseSideOf="LINK_FK_fk_choferVehiculo_vehiculo1_O" javaName="listOfChofervehiculo" javaType="java.util.List" joinTableName="" mappedBy="vehiculo" optional="UNDEFINED" owningSide="false" sourceTableName="vehiculo" targetEntity="Chofervehiculo" targetTableName="chofervehiculo" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_vehiculo_color1" id="LINK_FK_fk_vehiculo_color1_O" inverseSideOf="" javaName="color" javaType="Color" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="vehiculo" targetEntity="Color" targetTableName="color" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="colorId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Vehiculoservicio" name="vehiculoservicio" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="vehiculoId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="vehiculoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Vehiculoid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="servicioId" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="servicioid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Servicioid" notNull="true" selected="true"/>
+<fk name="fk_vehiculoServicio_servicio1">
+<fkcol colname="servicioId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="vehiculoservicio" tableref="servicio" updaterule="3"/>
+</fk>
+<fk name="fk_vehiculoServicio_vehiculo1">
+<fkcol colname="vehiculoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="vehiculoservicio" tableref="vehiculo" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_vehiculoServicio_servicio1" id="LINK_FK_fk_vehiculoServicio_servicio1_O" inverseSideOf="" javaName="servicio" javaType="Servicio" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="vehiculoservicio" targetEntity="Servicio" targetTableName="servicio" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="servicioId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_clienteViajeServicio_vehiculoServicio1" id="LINK_FK_fk_clienteViajeServicio_vehiculoServicio1_I" inverseSideOf="LINK_FK_fk_clienteViajeServicio_vehiculoServicio1_O" javaName="listOfClienteviajeservicio" javaType="java.util.List" joinTableName="" mappedBy="vehiculoservicio" optional="UNDEFINED" owningSide="false" sourceTableName="vehiculoservicio" targetEntity="Clienteviajeservicio" targetTableName="clienteviajeservicio" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_vehiculoServicio_vehiculo1" id="LINK_FK_fk_vehiculoServicio_vehiculo1_O" inverseSideOf="" javaName="vehiculo" javaType="Vehiculo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="vehiculoservicio" targetEntity="Vehiculo" targetTableName="vehiculo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="vehiculoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="app" databaseType="TABLE" javaBean="Viaje" name="viaje" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="destinoHorarioId" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="destinohorarioid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Destinohorarioid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="choferVehiculoId" dbNotNull="false" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="chofervehiculoid" javaType="java.lang.Long" jdbcTypeCode="-5" label="Chofervehiculoid" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="0" dbName="confirmado" dbNotNull="true" dbPosition="4" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="confirmado" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Confirmado" notNull="true" selected="true"/>
+<fk name="fk_viaje_choferVehiculo1">
+<fkcol colname="choferVehiculoId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="viaje" tableref="chofervehiculo" updaterule="3"/>
+</fk>
+<fk name="fk_viaje_destinoHorario1">
+<fkcol colname="destinoHorarioId" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="viaje" tableref="destinohorario" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_viaje_choferVehiculo1" id="LINK_FK_fk_viaje_choferVehiculo1_O" inverseSideOf="" javaName="chofervehiculo" javaType="Chofervehiculo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="viaje" targetEntity="Chofervehiculo" targetTableName="chofervehiculo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="choferVehiculoId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_viaje_destinoHorario1" id="LINK_FK_fk_viaje_destinoHorario1_O" inverseSideOf="" javaName="destinohorario" javaType="Destinohorario" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="viaje" targetEntity="Destinohorario" targetTableName="destinohorario" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="destinoHorarioId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_clienteViaje_viaje1" id="LINK_FK_fk_clienteViaje_viaje1_I" inverseSideOf="LINK_FK_fk_clienteViaje_viaje1_O" javaName="listOfClienteviaje" javaType="java.util.List" joinTableName="" mappedBy="viaje" optional="UNDEFINED" owningSide="false" sourceTableName="viaje" targetEntity="Clienteviaje" targetTableName="clienteviaje" used="true"/>
+</table>
+</tableList>
+</root>
